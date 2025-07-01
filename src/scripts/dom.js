@@ -12,7 +12,7 @@ export default (() => {
     .addEventListener("click", () => {
       hideNewTaskModal();
     });
-  // Changing Task Status By Clickg on Dom
+  // Changing Task Status By Clicking on Dom
   changeDomTaskStatusCheckbox();
 })();
 
@@ -21,7 +21,7 @@ function showNewTaskModal() {
   document.getElementById("newtask-modal").style.opacity = "1";
 }
 
-function hideNewTaskModal() {
+export function hideNewTaskModal() {
   document.getElementById("newtask-modal").style.opacity = "0";
 }
 

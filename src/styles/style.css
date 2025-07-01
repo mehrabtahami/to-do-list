@@ -255,6 +255,7 @@ body {
   border-radius: 2rem;
   width: 90%;
   box-shadow: 0rem 0rem 15rem 20rem #141414;
+  z-index: 10;
 }
 
 #newtask-modal {
