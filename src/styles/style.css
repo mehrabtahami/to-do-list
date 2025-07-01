@@ -9,9 +9,10 @@
   --gray-bg: #343434;
   --gray: #696969;
   --color: #fbfbfb;
-  /* --primary: #3a75f7; */
+  --primary: #3a75f7;
+  /* --primary: #ff5700; */
+
   --navbar-bg: #000000;
-  --primary: #ff5700;
   --blur-bg-picture: url("../assets/images/background.jpg");
 }
 
@@ -239,4 +240,84 @@ body {
 
 .task-card .task-status i {
   font-size: 1.5rem;
+}
+
+/* New Task Form Modal */
+
+.modal {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 5%;
+
+  background-color: var(--main-bg);
+  border: 1px solid var(--gray-bg);
+  padding: 1.5rem;
+  border-radius: 2rem;
+  width: 90%;
+  box-shadow: 0rem 0rem 15rem 20rem #141414;
+}
+
+#newtask-modal {
+  display: none;
+}
+
+#newtask-modal form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+  width: 100%;
+}
+
+#newtask-modal form legend {
+  align-self: center;
+  font-weight: 600;
+  border-bottom: 1px solid var(--gray);
+  padding-bottom: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+#newtask-modal form input,
+#newtask-modal form textarea {
+  width: 100%;
+  margin-bottom: 1rem;
+  border-radius: 0.5rem;
+  height: 3rem;
+  background-color: var(--gray-bg);
+  padding: 1rem;
+}
+
+#newtask-modal form textarea {
+  height: 6rem;
+}
+
+#newtask-modal form .btn-container {
+  display: flex;
+  justify-content: space-around;
+  gap: 1rem;
+}
+
+.btn {
+  padding: 1rem 1.5rem;
+  border-radius: 1rem;
+  width: 100%;
+  transition: all 0.1s ease;
+}
+
+.submit-btn {
+  background-color: var(--primary);
+}
+
+.submit-btn:hover {
+  outline: 1px solid var(--primary);
+  background-color: inherit;
+}
+
+.cancel-btn {
+  background-color: rgb(110, 14, 14);
+}
+
+.cancel-btn:hover {
+  outline: 2px solid rgb(110, 14, 14);
+  background-color: inherit;
 }

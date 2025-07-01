@@ -76,6 +76,34 @@
         <div class="calendar-btn"><i class="bi bi-calendar-date"></i></div>
         <div class="setting-btn"><i class="bi bi-gear"></i></div>
       </div>
+      <div id="newtask-modal" class="modal">
+        <form action="" method="post" id="newtask">
+          <legend>Create a new task</legend>
+          <label for="title">Title</label>
+          <input
+            type="text"
+            name="title"
+            id="title"
+            placeholder="Enter your task title"
+          />
+          <label for="description">Description</label>
+          <textarea
+            name="description"
+            id="description"
+            placeholder="Describe your task a little"
+            rows="10"
+            cols="10"
+            minlength="7"
+            maxlength="50"
+          ></textarea>
+          <label for="duedate">Duedate</label>
+          <input type="date" name="duedate" id="duedate" />
+          <div class="btn-container">
+            <button type="reset" class="btn cancel-btn">Cancel</button>
+            <button type="submit" class="btn submit-btn">Create</button>
+          </div>
+        </form>
+      </div>
     </div>
   </body>
 </html>
