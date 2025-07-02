@@ -29,12 +29,18 @@ export function hideNewTaskModal() {
 
 function changeDomTaskStatusCheckbox() {
   const taskContainer = document.querySelector(".tasks-container");
+  if (!taskContainer) {
+    console.error("Error: Element with class '.tasks-container' not found.");
+    return;
+  }
   taskContainer.addEventListener("click", (e) => {
-    const clicked = e.target.closest(".task-status");
-    if (!clicked.classList.contains("done")) {
-      clicked.classList.add("done");
-    } else {
-      clicked.classList.remove("done");
+    const statusElement = e.target;
+    const taskStatus = statusElement.closest(".task-status");
+    if (statusElement.classList.contains("taskstatus")) {
+      const clickedCard = statusElement.closest(".task-card");
+      if (clickedCard) {
+        taskStatus.classList.toggle("done");
+      }
     }
   });
 }
@@ -52,8 +58,12 @@ export function showNewTaskOnDom(title, desc) {
   taskCard.appendChild(taskDesc);
   const taskStatus = document.createElement("span");
   taskStatus.classList.add("task-status");
-  taskStatus.innerHTML = '<i class="bi bi-check2"></i>';
+  taskStatus.innerHTML = '<i class="bi bi-check2 taskstatus"></i>';
   taskCard.appendChild(taskStatus);
+  const removeTask = document.createElement("div");
+  removeTask.classList.add("task-remove");
+  removeTask.innerHTML = '<i class="bi bi-trash3 removetask"></i>';
+  taskCard.appendChild(removeTask);
   // Put New ToDo content in DOM
   taskTitle.textContent = title;
   taskDesc.textContent = desc;

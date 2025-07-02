@@ -194,6 +194,7 @@ body {
 #homepage-container .homepage-tasks .tasks-container .task-card {
   background-color: var(--color);
   border-radius: 2.3rem;
+  border-bottom-right-radius: 1rem;
   padding: 1.5rem;
   color: var(--main-bg);
   line-height: 2;
@@ -242,8 +243,22 @@ body {
   font-size: 1.5rem;
 }
 
-/* New Task Form Modal */
+.task-card .task-remove {
+  position: absolute;
+  color: rgb(158, 27, 27);
+  width: 2.2rem;
+  height: 2.2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  font-size: 1.3rem;
+  right: 1%;
+  bottom: 1%;
+  cursor: pointer;
+}
 
+/* New Task Form Modal */
 .modal {
   position: absolute;
   top: 50%;

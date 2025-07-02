@@ -67,12 +67,32 @@ class ToDo {
 (function () {
   const taskContainer = document.querySelector(".tasks-container");
   taskContainer.addEventListener("click", (e) => {
-    const clickedCard = e.target.closest(".task-card");
-    const title = clickedCard.querySelector(".task-title");
-    for (let i in myToDo) {
-      if (title.textContent === myToDo[i].title) {
-        myToDo[i].changeStatus();
-        break;
+    const clicked = e.target;
+    const title = clicked.closest(".task-card").querySelector(".task-title");
+    if (clicked.classList.contains("taskstatus")) {
+      for (let i in myToDo) {
+        if (title.textContent === myToDo[i].title) {
+          myToDo[i].changeStatus();
+          break;
+        }
+      }
+    }
+  });
+})();
+
+// Remove ToDo Function
+(function () {
+  const taskContainer = document.querySelector(".tasks-container");
+  taskContainer.addEventListener("click", (e) => {
+    const clicked = e.target;
+    const card = clicked.closest(".task-card");
+    const title = clicked.closest(".task-card").querySelector(".task-title");
+    if (clicked.classList.contains("removetask")) {
+      for (let i in myToDo) {
+        if (myToDo[i].title === title.textContent) {
+          card.remove();
+          myToDo.splice(i, 1);
+        }
       }
     }
   });
