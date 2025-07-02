@@ -24,6 +24,23 @@ class ToDo {
   }
 }
 
+// Create Some Test Default Dynamic ToDo Classes
+(() => {
+  const test1 = new ToDo(
+    "Feeding Dog",
+    "Feeding Dog Every 8 Hours",
+    "2025-07-15"
+  );
+  const test2 = new ToDo(
+    "Drink Water",
+    "Drink Water Every 4 Hours",
+    "2025-09-20"
+  );
+  myToDo.push(test1, test2);
+  showNewTaskOnDom(myToDo[0].title, myToDo[0].description);
+  showNewTaskOnDom(myToDo[1].title, myToDo[1].description);
+})();
+
 // Form Date Submit - Create New ToDo with Class - get data from form modal DOM
 (function () {
   const form = document.getElementById("newtask");
@@ -49,7 +66,6 @@ class ToDo {
 // To Change Task Status in Array
 (function () {
   const taskContainer = document.querySelector(".tasks-container");
-  console.log(myToDo);
   taskContainer.addEventListener("click", (e) => {
     const clickedCard = e.target.closest(".task-card");
     const title = clickedCard.querySelector(".task-title");
