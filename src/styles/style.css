@@ -261,6 +261,7 @@ body {
 #newtask-modal {
   transition: all 0.2s cubic-bezier(0.23, 1, 0.32, 1);
   opacity: 0;
+  z-index: -10;
 }
 
 #newtask-modal form {
