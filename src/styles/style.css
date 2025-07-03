@@ -135,6 +135,7 @@ body {
 #navbar {
   display: flex;
   width: 90%;
+  max-width: 500px;
   justify-content: space-between;
   background-color: var(--navbar-bg);
   border-radius: 4rem;
