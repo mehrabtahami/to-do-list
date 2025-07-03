@@ -120,13 +120,13 @@ body {
   font-size: 1.3rem;
 }
 
-#homepage-container .header .search-bar input[type="text"] {
+#homepage-container .header .search-bar input {
   background-color: inherit;
   border: none;
   margin-left: 1rem;
   color: var(--color);
 }
-#homepage-container .header .search-bar input[type="text"]:focus {
+#homepage-container .header .search-bar input {
   outline: none;
 }
 
