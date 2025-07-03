@@ -10,6 +10,7 @@ const myToDo = [];
 
 class ToDo {
   constructor(title, description, duedate) {
+    this.id = crypto.randomUUID();
     this.title = title;
     this.description = description;
     this.duedate = duedate;
@@ -37,8 +38,8 @@ class ToDo {
     "2025-09-20"
   );
   myToDo.push(test1, test2);
-  showNewTaskOnDom(myToDo[0].title, myToDo[0].description);
-  showNewTaskOnDom(myToDo[1].title, myToDo[1].description);
+  showNewTaskOnDom(myToDo[0].id, myToDo[0].title, myToDo[0].description);
+  showNewTaskOnDom(myToDo[1].id, myToDo[1].title, myToDo[1].description);
 })();
 
 // Form Date Submit - Create New ToDo with Class - get data from form modal DOM
@@ -46,20 +47,15 @@ class ToDo {
   const form = document.getElementById("newtask");
   form.addEventListener("submit", (e) => {
     e.preventDefault();
-    // Get Dom Form Data
-    document
-      .querySelector("#newtask .submit-btn")
-      .addEventListener("click", () => {
-        const title = document.querySelector("#title").value;
-        const description = document.querySelector("#description").value;
-        const dueDate = document.querySelector("#duedate").value;
-        // Create New ToDo
-        let newToDo = new ToDo(title, description, dueDate);
-        myToDo.push(newToDo);
-        showNewTaskOnDom(title, description);
-        form.reset();
-        hideNewTaskModal();
-      });
+    const title = document.querySelector("#title").value;
+    const description = document.querySelector("#description").value;
+    const dueDate = document.querySelector("#duedate").value;
+    // Create New ToDo
+    let newToDo = new ToDo(title, description, dueDate);
+    myToDo.push(newToDo);
+    showNewTaskOnDom(newToDo.id, title, description);
+    form.reset();
+    hideNewTaskModal();
   });
 })();
 
@@ -68,10 +64,10 @@ class ToDo {
   const taskContainer = document.querySelector(".tasks-container");
   taskContainer.addEventListener("click", (e) => {
     const clicked = e.target;
-    const title = clicked.closest(".task-card").querySelector(".task-title");
+    const id = clicked.closest(".task-card").getAttribute("data-id");
     if (clicked.classList.contains("taskstatus")) {
       for (let i in myToDo) {
-        if (title.textContent === myToDo[i].title) {
+        if (id === myToDo[i].id) {
           myToDo[i].changeStatus();
           break;
         }
@@ -80,18 +76,18 @@ class ToDo {
   });
 })();
 
-// Remove ToDo Function
+// Remove ToDo from DOM & Array Function
 (function () {
   const taskContainer = document.querySelector(".tasks-container");
   taskContainer.addEventListener("click", (e) => {
     const clicked = e.target;
     const card = clicked.closest(".task-card");
-    const title = clicked.closest(".task-card").querySelector(".task-title");
+    const id = clicked.closest(".task-card").getAttribute("data-id");
     if (clicked.classList.contains("removetask")) {
       for (let i in myToDo) {
-        if (myToDo[i].title === title.textContent) {
-          card.remove();
-          myToDo.splice(i, 1);
+        if (myToDo[i].id === id) {
+          card.remove(); // remove from DOM
+          myToDo.splice(i, 1); // remove from array
         }
       }
     }

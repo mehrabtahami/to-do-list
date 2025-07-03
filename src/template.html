@@ -70,6 +70,8 @@
             name="title"
             id="title"
             placeholder="Enter your task title"
+            required
+            minlength="7"
           />
           <label for="description">Description</label>
           <textarea
@@ -80,6 +82,7 @@
             cols="10"
             minlength="7"
             maxlength="50"
+            required
           ></textarea>
           <label for="duedate">Duedate</label>
           <input type="date" name="duedate" id="duedate" />

@@ -28,7 +28,8 @@ body {
   color: var(--color);
   min-width: 360px;
   max-width: 1000px;
-  height: 100%;
+  height: max-content;
+  min-height: 100%;
   margin: 0 auto;
   position: relative;
 }
@@ -58,11 +59,17 @@ body {
   aspect-ratio: 1 / 1;
   border: 0.4rem solid var(--gray-bg);
   border-radius: 50%;
+  transition: all 0.2s ease;
+}
+
+#homepage-container .header .profile:hover {
+  border-color: var(--primary);
 }
 
 #homepage-container .header .profile img {
   border-radius: 50%;
 }
+
 /* Notification Icon and Other header Buttons */
 .navicon {
   background-color: var(--color);
@@ -72,7 +79,7 @@ body {
   justify-content: center;
   align-items: center;
   border-radius: 50%;
-  transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease;
 }
 
 .navicon i {
@@ -133,11 +140,12 @@ body {
   justify-content: space-between;
   background-color: var(--navbar-bg);
   border-radius: 4rem;
-  position: absolute;
+  position: fixed;
   left: 50%;
   transform: translateX(-50%);
   bottom: 1rem;
   padding: 5px;
+  z-index: 3;
 }
 
 #navbar i {
@@ -189,6 +197,7 @@ body {
   flex-direction: column;
   margin-top: 1rem;
   row-gap: 1rem;
+  /* height: 100%; */
 }
 
 #homepage-container .homepage-tasks .tasks-container .task-card {
@@ -199,6 +208,10 @@ body {
   color: var(--main-bg);
   line-height: 2;
   position: relative;
+}
+
+.homepage-tasks .tasks-container .task-card:last-child {
+  margin-bottom: 5rem;
 }
 
 #homepage-container .homepage-tasks .tasks-container .task-card p {
@@ -319,6 +332,21 @@ body {
   border-radius: 1rem;
   width: 100%;
   transition: all 0.1s ease;
+}
+
+form input:focus,
+form textarea:focus {
+  outline: 1px solid var(--primary);
+}
+
+form input:user-invalid,
+form textarea:user-invalid {
+  outline: 2px solid rgb(138, 23, 23);
+}
+
+form input:user-valid,
+form textarea:user-valid {
+  outline: 2px solid rgb(18, 126, 84);
 }
 
 .submit-btn {

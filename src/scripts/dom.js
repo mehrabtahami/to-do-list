@@ -45,10 +45,11 @@ function changeDomTaskStatusCheckbox() {
   });
 }
 
-export function showNewTaskOnDom(title, desc) {
+export function showNewTaskOnDom(id, title, desc) {
   const container = document.querySelector(".tasks-container");
   const taskCard = document.createElement("div");
   taskCard.classList.add("task-card");
+  taskCard.setAttribute("data-id", id);
   container.appendChild(taskCard);
   const taskTitle = document.createElement("h3");
   taskTitle.classList.add("task-title");
