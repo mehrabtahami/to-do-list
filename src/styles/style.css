@@ -32,7 +32,7 @@ body {
   position: relative;
 }
 
-#container > div {
+#container {
   padding: 1rem;
 }
 
@@ -142,7 +142,7 @@ body {
   left: 50%;
   transform: translateX(-50%);
   bottom: 1rem;
-  padding: 5px;
+  padding: 0.5rem;
   z-index: 3;
 }
 
@@ -365,4 +365,42 @@ form textarea:user-valid {
 .cancel-btn:hover {
   outline: 2px solid rgb(110, 14, 14);
   background-color: inherit;
+}
+
+@media screen and (max-width: 400px) {
+  #navbar {
+    padding: 0.3rem;
+  }
+  #navbar i {
+    font-size: 1.5rem;
+  }
+  #navbar div {
+    width: 50px;
+    height: 50px;
+  }
+  #homepage-container .header {
+    grid-template-columns: 60px auto 60px;
+    row-gap: 1rem;
+  }
+
+  #homepage-container .header .search-bar {
+    padding: 0.7rem 1.2rem;
+  }
+
+  #homepage-container .header .search-bar > i {
+    font-size: 1.2rem;
+  }
+
+  #homepage-container .header .welcome p {
+    font-size: 1rem;
+  }
+
+  #homepage-container {
+    gap: 0.7rem;
+  }
+  #homepage-container .homepage-tasks .tasks-container .task-card {
+    padding: 1rem;
+    border-radius: 2rem;
+    border-bottom-right-radius: 1rem;
+  }
 }
