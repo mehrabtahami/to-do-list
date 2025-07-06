@@ -32,9 +32,8 @@ body {
   position: relative;
 }
 
-#container > div:first-child {
+#container > div {
   padding: 1rem;
-  padding-right: 1.5rem;
 }
 
 /* Home Page Style  */
@@ -196,7 +195,7 @@ body {
   flex-direction: column;
   margin-top: 1rem;
   row-gap: 1rem;
-  /* height: 100%; */
+  padding-right: 1rem;
 }
 
 #homepage-container .homepage-tasks .tasks-container .task-card {
