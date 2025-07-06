@@ -1,25 +1,26 @@
 {
-  "name": "odin-restaurant",
+  "name": "to-do-list",
   "version": "1.0.0",
-  "description": "Dynamic Restaurant Using JS &amp; WebPack",
+  "description": "to do list app",
   "main": "webpack.config.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack --config webpack.prod.js",
     "dev": "webpack serve --config webpack.dev.js",
-    "deploy": "git subtree push --prefix dist origin gh-pages"
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/mehrabtahami/odin-restaurant.git"
+    "url": "git+https://github.com/mehrabtahami/to-do-list.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/mehrabtahami/odin-restaurant/issues"
+    "url": "https://github.com/mehrabtahami/to-do-list/issues"
   },
-  "homepage": "https://github.com/mehrabtahami/odin-restaurant#readme",
+  "homepage": "https://github.com/mehrabtahami/to-do-list#readme",
   "devDependencies": {
     "assert": "^2.1.0",
     "browserify-zlib": "^0.2.0",
@@ -27,6 +28,7 @@
     "constants-browserify": "^1.0.0",
     "crypto-browserify": "^3.12.1",
     "css-loader": "^7.1.2",
+    "gh-pages": "^6.3.0",
     "html-loader": "^5.1.0",
     "html-webpack-plugin": "^5.6.3",
     "https-browserify": "^1.0.0",

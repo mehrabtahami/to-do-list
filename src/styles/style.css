@@ -238,17 +238,9 @@ body {
   cursor: pointer;
 }
 
-.task-card .task-status:hover {
-  background-color: var(--gray);
-  color: var(--gray);
-}
-
 .task-card .task-status.done {
   background-color: var(--navbar-bg);
   outline: 2px solid var(--color);
-}
-.task-card .task-status.done:hover {
-  background-color: var(--gray);
 }
 
 .task-card .task-status i {
