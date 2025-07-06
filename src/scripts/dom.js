@@ -18,13 +18,16 @@ export default (() => {
 
 // Funcions **********
 function showNewTaskModal() {
-  document.getElementById("newtask-modal").style.opacity = "1";
+  const modal = document.getElementById("newtask-modal");
+  modal.style.opacity = "1";
   document.getElementById("newtask-modal").style.zIndex = "10";
+  document.querySelector(".modal-backdrop").style.display = "block";
 }
 
 export function hideNewTaskModal() {
   document.getElementById("newtask-modal").style.opacity = "0";
   document.getElementById("newtask-modal").style.zIndex = "-10";
+  document.querySelector(".modal-backdrop").style.display = "none";
 }
 
 function changeDomTaskStatusCheckbox() {
@@ -45,26 +48,43 @@ function changeDomTaskStatusCheckbox() {
   });
 }
 
-export function showNewTaskOnDom(id, title, desc) {
+export function renderAllTasks(tasks) {
+  const container = document.querySelector(".tasks-container");
+  container.innerHTML = ""; // delete previous DOM container content
+  tasks.forEach((task) => {
+    showNewTaskOnDom(task.id, task.title, task.description, task.status);
+  });
+}
+
+export function showNewTaskOnDom(id, title, desc, status) {
   const container = document.querySelector(".tasks-container");
   const taskCard = document.createElement("div");
   taskCard.classList.add("task-card");
   taskCard.setAttribute("data-id", id);
   container.appendChild(taskCard);
+
   const taskTitle = document.createElement("h3");
   taskTitle.classList.add("task-title");
   taskCard.appendChild(taskTitle);
+
   const taskDesc = document.createElement("p");
   taskDesc.classList.add("task-summary");
   taskCard.appendChild(taskDesc);
+
   const taskStatus = document.createElement("span");
   taskStatus.classList.add("task-status");
+  // اگر تسک وضعیت 'done' داشت، این کلاس را به آن اضافه می‌کنیم تا ظاهرش تغییر کند
+  if (status === "done") {
+    taskStatus.classList.add("done");
+  }
   taskStatus.innerHTML = '<i class="bi bi-check2 taskstatus"></i>';
   taskCard.appendChild(taskStatus);
+
   const removeTask = document.createElement("div");
   removeTask.classList.add("task-remove");
   removeTask.innerHTML = '<i class="bi bi-trash3 removetask"></i>';
   taskCard.appendChild(removeTask);
+
   // Put New ToDo content in DOM
   taskTitle.textContent = title;
   taskDesc.textContent = desc;

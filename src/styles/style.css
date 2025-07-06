@@ -281,8 +281,18 @@ body {
   padding: 1.5rem;
   border-radius: 2rem;
   width: 90%;
-  box-shadow: 0rem 0rem 15rem 20rem #141414;
+  z-index: 11;
+}
+
+.modal-backdrop {
+  width: 100vh;
+  height: 100vh;
   z-index: 10;
+  position: absolute;
+  top: 0;
+  background-color: rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(10px);
+  display: none;
 }
 
 #newtask-modal {
